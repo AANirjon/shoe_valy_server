@@ -99,7 +99,7 @@ async function run() {
         // Cancel or delete a product
         app.delete('/products/:id', async (req, res) => {
             const id = req.params.id;
-            const query = { _id: id };
+            const query = { _id: ObjectId(id) };
             const result = await collectionProduct.deleteOne(query);
             res.json(result);
         });
@@ -133,7 +133,7 @@ async function run() {
         // Cancel or delete a order 
         app.delete('/orders/:id', async (req, res) => {
             const id = req.params.id;
-            const query = { _id: id };
+            const query = { _id: ObjectId(id) };
             const result = await collectionOrder.deleteOne(query);
             res.json(result);
         });
